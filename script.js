@@ -52,19 +52,19 @@ const songs = [
     {
         title: "Jatuh Suka",
         artist: "a song for a special memory",
-        file: "music/lagu1.mp3"
+        file: "lagu1.mp3"
     },
 
     {
         title: "Shape Of My Heart",
         artist: "another little memory",
-        file: "music/lagu2.mp3"
+        file: "lagu2.mp3"
     },
 
     {
         title: "DNA - Lany",
         artist: "one more song for you",
-        file: "music/lagu3.mp3"
+        file: "lagu3.mp3"
     }
 ];
 
@@ -3927,4 +3927,4 @@ console.log(
 
 console.log(
     "♡ Birthday Surprise ready"
-);
+);
