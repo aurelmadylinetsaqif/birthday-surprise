@@ -2462,7 +2462,7 @@ const bookPages = [
         eyebrow: "MEMORY 01 · LITTLE MOMENT",
         title: "a little memory",
         note: "Momen kecil yang ternyata membekas lebih lama dari yang aku kira.",
-        image: "images/foto1.jpeg",
+        image: "foto1.jpeg",
         special: false
     },
 
@@ -2470,7 +2470,7 @@ const bookPages = [
         eyebrow: "MEMORY 02 · FAVORITE MOMENT",
         title: "one of my favorites",
         note: "Kalau boleh milih satu untuk diputar ulang, mungkin ini salah satunya.",
-        image: "images/foto2.jpeg",
+        image: "foto2.jpeg",
         special: false
     },
 
@@ -2478,7 +2478,7 @@ const bookPages = [
         eyebrow: "MEMORY 03 · THIS MOMENT",
         title: "this moment ♡",
         note: "Sederhana, tapi entah kenapa selalu aku ingat detailnya.",
-        image: "images/foto3.jpeg",
+        image: "foto3.jpeg",
         special: false
     },
 
@@ -2486,7 +2486,7 @@ const bookPages = [
         eyebrow: "MEMORY 04 · SPECIAL MEMORY",
         title: "always remember ♡",
         note: "Halaman terakhir, tapi bukan berarti ceritanya selesai di sini.",
-        image: "images/foto4.jpeg",
+        image: "foto4.jpeg",
         special: true
     }
 
