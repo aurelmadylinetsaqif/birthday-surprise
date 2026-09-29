@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#120917">
+
+    <title>A Little Surprise For You ♡</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- BACKGROUND -->
+
+    <div class="background"></div>
+
+    <div class="ambient ambient-1"></div>
+    <div class="ambient ambient-2"></div>
+    <div class="ambient ambient-3"></div>
+
+    <div id="stars"></div>
+
+    <div id="petals"></div>
+
+    <div id="confettiContainer"></div>
+
+    <div id="effectContainer"></div>
+
+
+    <!-- =====================================================
+         ARCHERY GAME
+    ====================================================== -->
+
+    <section
+        id="gamePage"
+        class="screen game-page"
+    >
+
+        <div class="game-background-glow"></div>
+
+        <div class="game-ui">
+
+            <div class="game-header">
+
+                <div class="tiny-title">
+                    SHOOT THE HEARTS
+                </div>
+
+                <h1 class="game-title">
+                    Aim &amp; Shoot ♡
+                </h1>
+
+                <p class="game-description">
+                    Tap to shoot arrows at the floating hearts.<br>
+                    Hit 5 hearts to enter!
+                </p>
+
+            </div>
+
+            <div class="game-canvas-wrap">
+
+                <canvas id="gameCanvas"></canvas>
+
+            </div>
+
+            <div class="game-score-wrap">
+
+                <div class="game-score">
+                    <span id="gameScore">0</span>
+                    <small>/ 5</small>
+                </div>
+
+                <div class="game-hearts-display" id="gameHeartsDisplay">
+                    ♡ ♡ ♡ ♡ ♡
+                </div>
+
+            </div>
+
+            <div
+                id="gameMessage"
+                class="game-message"
+            >
+                Tap the canvas to shoot!
+            </div>
+
+            <div class="game-footer">
+                made for one special person ♡
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main id="mainContent" class="hidden">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-glow hero-glow-left"></div>
+            <div class="hero-glow hero-glow-right"></div>
+
+            <div class="hero-content">
+
+                <div class="tiny-title">
+                    THIS PAGE IS JUST FOR YOU
+                </div>
+
+                <div class="hero-small-label">
+                    a little birthday surprise
+                </div>
+
+                <h1 class="hero-title">
+                    Happy Birthday
+                    <span>Arum Safiya Zahra</span>
+                </h1>
+
+                <p class="hero-date">
+                    02 · 10 · 2007
+                </p>
+
+                <div class="hero-date-line">
+                    <span></span>
+                    <i>✦</i>
+                    <span></span>
+                </div>
+
+
+                <!-- GIFT -->
+
+                <div
+                    class="gift-container"
+                    id="giftBox"
+                    onclick="openGift(event)"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Open birthday gift"
+                >
+
+                    <div class="gift-message">
+                        Tap the gift ♡
+                    </div>
+
+                    <div class="gift">
+
+                        <div class="gift-glow"></div>
+
+                        <div
+                            class="flowers"
+                            id="giftFlowers"
+                        >
+
+                            <span
+                                data-flower="1"
+                                role="button"
+                                tabindex="0"
+                                aria-label="Flower 1"
+                            >🌷</span>
+
+                            <span
+                                data-flower="2"
+                                role="button"
+                                tabindex="0"
+                                aria-label="Flower 2"
+                            >🌸</span>
+
+                            <span
+                                data-flower="3"
+                                role="button"
+                                tabindex="0"
+                                aria-label="Flower 3"
+                            >🌹</span>
+
+                            <span
+                                data-flower="4"
+                                role="button"
+                                tabindex="0"
+                                aria-label="Flower 4"
+                            >🌷</span>
+
+                            <span
+                                data-flower="5"
+                                role="button"
+                                tabindex="0"
+                                aria-label="Flower 5"
+                            >🌸</span>
+
+                            <span
+                                data-flower="6"
+                                role="button"
+                                tabindex="0"
+                                aria-label="Flower 6"
+                            >🌺</span>
+
+                            <span
+                                data-flower="7"
+                                role="button"
+                                tabindex="0"
+                                aria-label="Flower 7"
+                            >🌹</span>
+
+                        </div>
+
+
+                        <div class="gift-lid">
+                            <div class="gift-ribbon"></div>
+                        </div>
+
+                        <div class="gift-box">
+                            <div class="gift-ribbon"></div>
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="gift-hint"
+                        id="giftHint"
+                    >
+                        A little gift for you
+                    </div>
+
+                    <div
+                        class="gift-open-message"
+                        id="giftOpenMessage"
+                    >
+                        A little something for you ♡
+                    </div>
+
+                </div>
+
+
+                <div class="hero-line"></div>
+
+                <p class="hero-subtitle">
+                    A little something I made<br>
+                    especially for you.
+                </p>
+
+                <div class="hero-note">
+                    <span>scroll slowly</span>
+                    <b>↓</b>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LETTER
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="section-number">
+                01
+            </div>
+
+            <div class="section-label">
+                A LETTER
+            </div>
+
+            <h2 class="section-title">
+                A few words<br>
+                <i>for you.</i>
+            </h2>
+
+            <p class="section-description">
+                Ada beberapa hal yang mungkin lebih mudah
+                ditulis daripada diucapkan.
+            </p>
+
+            <div class="letter">
+
+                <div class="letter-top">
+                    ♡
+                </div>
+
+                <div class="letter-stamp">
+                    FOR YOU
+                </div>
+
+                <h3>
+                    Dear you,
+                </h3>
+
+                <p>
+                    Selamat ulang tahun yaa Arum Safiya Zahra
+                </p>
+
+                <p>
+                    Semoga di umur yang baru ini kamu selalu  
+                    diberikan kebahagiaan kebahagiaan, kesehatan
+                    dan segala hal baik yang kamu harapkan. 
+                    Aku tahu sekarang kita sudah gak kayak dulu
+                    lagi, apalagi kesalahan yang aku buat.
+                </p>
+
+                <p>
+                    Aku juga sadar mungkin ada hal-hal yang gak
+                    bisa di perbaiki dengan kata maaf, tapi sekali
+                    lagi aku minta maaf ya.
+                </p>
+
+                <p>
+                    Tapi di hari spesial kamu ini, aku tetep
+                    ingin mendoakan yang terbaik buat kamu. 
+                    
+                </p>
+
+                <p>
+                    Semoga kamu selalu bahagia,
+                    walaupun mungkin
+                    kita gak deket lagi.
+                    Sekali lagi, selamat ulang tahun.
+                    Semoga semua hal yang ingin Arum tercapai.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MEMORIES / RECEIPT
+        ================================================== -->
+
+        <section
+            class="section memories-section"
+        >
+
+            <div class="section-number">
+                02
+            </div>
+
+            <div class="section-label">
+                OUR MEMORIES
+            </div>
+
+            <h2 class="section-title">
+                Little moments
+            </h2>
+
+            <p class="section-description">
+                Empat potongan kecil dari cerita
+                yang ingin aku simpan lebih lama.
+            </p>
+
+
+            <div class="memory-receipt-grid">
+
+
+                <!-- MEMORY 1 -->
+
+                <article
+                    class="memory-ticket"
+                    data-memory="1"
+                >
+
+                    <div class="ticket-top">
+                        <span>MEMORY 01</span>
+                        <b>♡</b>
+                    </div>
+
+                    <div class="ticket-photo">
+
+                        <img
+                            src="images/foto1.jpeg"
+                            alt="Memory 1"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <div class="ticket-info">
+
+                        <span>
+                            LITTLE MOMENT
+                        </span>
+
+                        <strong>
+                            a little memory
+                        </strong>
+
+                        <small>
+                            open the book
+                        </small>
+
+                    </div>
+
+                    <div class="ticket-bottom">
+                        <span>02.10.2007</span>
+                        <b>✦</b>
+                    </div>
+
+                </article>
+
+
+                <!-- MEMORY 2 -->
+
+                <article
+                    class="memory-ticket"
+                    data-memory="2"
+                >
+
+                    <div class="ticket-top">
+                        <span>MEMORY 02</span>
+                        <b>♡</b>
+                    </div>
+
+                    <div class="ticket-photo">
+
+                        <img
+                            src="images/foto2.jpeg"
+                            alt="Memory 2"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <div class="ticket-info">
+
+                        <span>
+                            FAVORITE MOMENT
+                        </span>
+
+                        <strong>
+                            one of my favorites
+                        </strong>
+
+                        <small>
+                            open the book
+                        </small>
+
+                    </div>
+
+                    <div class="ticket-bottom">
+                        <span>02.10.2007</span>
+                        <b>✦</b>
+                    </div>
+
+                </article>
+
+
+                <!-- MEMORY 3 -->
+
+                <article
+                    class="memory-ticket"
+                    data-memory="3"
+                >
+
+                    <div class="ticket-top">
+                        <span>MEMORY 03</span>
+                        <b>♡</b>
+                    </div>
+
+                    <div class="ticket-photo">
+
+                        <img
+                            src="images/foto3.jpeg"
+                            alt="Memory 3"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <div class="ticket-info">
+
+                        <span>
+                            THIS MOMENT
+                        </span>
+
+                        <strong>
+                            this moment ♡
+                        </strong>
+
+                        <small>
+                            open the book
+                        </small>
+
+                    </div>
+
+                    <div class="ticket-bottom">
+                        <span>02.10.2007</span>
+                        <b>✦</b>
+                    </div>
+
+                </article>
+
+
+                <!-- MEMORY 4 -->
+
+                <article
+                    class="memory-ticket special-ticket"
+                    data-memory="4"
+                >
+
+                    <div class="ticket-special">
+                        SPECIAL ♡
+                    </div>
+
+                    <div class="ticket-top">
+                        <span>MEMORY 04</span>
+                        <b>♡</b>
+                    </div>
+
+                    <div class="ticket-photo">
+
+                        <img
+                            src="images/foto4.jpeg"
+                            alt="Special Memory 4"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <div class="ticket-info">
+
+                        <span>
+                            SPECIAL MEMORY
+                        </span>
+
+                        <strong>
+                            always remember ♡
+                        </strong>
+
+                        <small>
+                            open the book
+                        </small>
+
+                    </div>
+
+                    <div class="ticket-bottom">
+                        <span>02.10.2007</span>
+                        <b>✦</b>
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div class="memory-hint">
+                <span>✦</span>
+                tap any memory to open our little photo book
+                <span>✦</span>
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MUSIC
+        ================================================== -->
+
+        <section class="section music-section">
+
+            <div class="section-number">
+                03
+            </div>
+
+            <div class="section-label">
+                OUR SONGS
+            </div>
+
+            <h2 class="section-title">
+                Press play.
+            </h2>
+
+            <p class="section-description">
+                Pilih salah satu lagu dan biarkan musiknya
+                menemani perjalanan kecil ini.
+            </p>
+
+
+            <div class="music-player">
+
+                <div class="album">
+
+                    <div class="album-ring"></div>
+
+                    <div class="music-note">
+                        ♫
+                    </div>
+
+                </div>
+
+                <div class="music-info">
+
+                    <span>
+                        NOW PLAYING
+                    </span>
+
+                    <h3 id="currentSongTitle">
+                        Jatuh Suka
+                    </h3>
+
+                    <p id="currentSongArtist">
+                        a song for a special memory
+                    </p>
+
+                </div>
+
+                <button
+                    id="musicButton"
+                    class="play-button"
+                    type="button"
+                    onclick="toggleMusic()"
+                >
+                    ▶
+                </button>
+
+            </div>
+
+
+            <div class="music-progress">
+
+                <span id="currentTime">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    id="progressBar"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.1"
+                >
+
+                <span id="duration">
+                    0:00
+                </span>
+
+            </div>
+
+
+            <div class="music-controls">
+
+                <button
+                    id="prevButton"
+                    type="button"
+                    onclick="previousSong()"
+                >
+                    ↶
+                </button>
+
+                <button
+                    id="mainPlayButton"
+                    type="button"
+                    onclick="toggleMusic()"
+                >
+                    ▶
+                </button>
+
+                <button
+                    id="nextButton"
+                    type="button"
+                    onclick="nextSong()"
+                >
+                    ↷
+                </button>
+
+            </div>
+
+
+            <div class="song-list">
+
+                <div
+                    class="song-card active"
+                    data-index="0"
+                    onclick="selectSong(0)"
+                    role="button"
+                    tabindex="0"
+                >
+
+                    <div class="song-number">
+                        01
+                    </div>
+
+                    <div class="song-icon">
+                        ♫
+                    </div>
+
+                    <div class="song-info">
+
+                        <span>
+                            SONG ONE
+                        </span>
+
+                        <h3>
+                            Jatuh Suka
+                        </h3>
+
+                        <p>
+                            a special memory
+                        </p>
+
+                    </div>
+
+                    <div class="song-play">
+                        ▶
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="song-card"
+                    data-index="1"
+                    onclick="selectSong(1)"
+                    role="button"
+                    tabindex="0"
+                >
+
+                    <div class="song-number">
+                        02
+                    </div>
+
+                    <div class="song-icon">
+                        ♫
+                    </div>
+
+                    <div class="song-info">
+
+                        <span>
+                            SONG TWO
+                        </span>
+
+                        <h3>
+                            Shape Of My Heart
+                        </h3>
+
+                        <p>
+                            another little memory
+                        </p>
+
+                    </div>
+
+                    <div class="song-play">
+                        ▶
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="song-card"
+                    data-index="2"
+                    onclick="selectSong(2)"
+                    role="button"
+                    tabindex="0"
+                >
+
+                    <div class="song-number">
+                        03
+                    </div>
+
+                    <div class="song-icon">
+                        ♫
+                    </div>
+
+                    <div class="song-info">
+
+                        <span>
+                            SONG THREE
+                        </span>
+
+                        <h3>
+                            DNA - Lany
+                        </h3>
+
+                        <p>
+                            one more song for you
+                        </p>
+
+                    </div>
+
+                    <div class="song-play">
+                        ▶
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <audio
+                id="music"
+                preload="metadata"
+            >
+
+                <source
+                    id="musicSource"
+                    src="music/lagu1.mp3"
+                    type="audio/mpeg"
+                >
+
+                Browser kamu tidak mendukung audio.
+
+            </audio>
+
+        </section>
+
+
+        <!-- =================================================
+             REASONS
+        ================================================== -->
+
+        <section class="section reasons-section">
+
+            <div class="section-number">
+                04
+            </div>
+
+            <div class="section-label">
+                WHY YOU
+            </div>
+
+            <h2 class="section-title">
+                Reasons I'm<br>
+                <i>grateful for you.</i>
+            </h2>
+
+            <p class="section-description">
+                Kalau harus menjelaskan kenapa kamu begitu
+                berarti, mungkin aku akan membutuhkan
+                lebih dari enam alasan.
+            </p>
+
+
+            <div class="reason-grid">
+
+
+                <article class="reason">
+
+                    <div class="reason-image">
+
+                        <img
+                            src="images/alasan1.jpeg"
+                            alt="Your smile"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <span>01</span>
+
+                    <h3>
+                        Your smile
+                    </h3>
+
+                    <p>
+                        Senyummu punya cara sederhana
+                        untuk membuat hari terasa lebih baik.
+                    </p>
+
+                </article>
+
+
+                <article class="reason">
+
+                    <div class="reason-image">
+
+                        <img
+                            src="images/alasan2.jpeg"
+                            alt="Your presence"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <span>02</span>
+
+                    <h3>
+                        Your presence
+                    </h3>
+
+                    <p>
+                        Kadang kehadiranmu saja sudah
+                        cukup untuk membuat semuanya terasa berbeda.
+                    </p>
+
+                </article>
+
+
+                <article class="reason">
+
+                    <div class="reason-image">
+
+                        <img
+                            src="images/alasan3.jpeg"
+                            alt="Your heart"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <span>03</span>
+
+                    <h3>
+                        Your heart
+                    </h3>
+
+                    <p>
+                        Ada banyak hal baik dalam dirimu
+                        yang membuatku bersyukur mengenalmu.
+                    </p>
+
+                </article>
+
+
+                <article class="reason">
+
+                    <div class="reason-image">
+
+                        <img
+                            src="images/alasan4.jpeg"
+                            alt="The little things"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <span>04</span>
+
+                    <h3>
+                        The little things
+                    </h3>
+
+                    <p>
+                        Hal-hal kecil yang kamu lakukan
+                        ternyata punya arti yang besar.
+                    </p>
+
+                </article>
+
+
+                <article class="reason">
+
+                    <div class="reason-image">
+
+                        <img
+                            src="images/alasan5.jpeg"
+                            alt="Being yourself"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <span>05</span>
+
+                    <h3>
+                        Being yourself
+                    </h3>
+
+                    <p>
+                        Kamu tidak perlu menjadi orang lain
+                        untuk menjadi seseorang yang berharga.
+                    </p>
+
+                </article>
+
+
+                <article class="reason">
+
+                    <div class="reason-image">
+
+                        <img
+                            src="images/alasan6.jpeg"
+                            alt="Simply you"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <span>06</span>
+
+                    <h3>
+                        Simply you
+                    </h3>
+
+                    <p>
+                        Dan alasan terakhir...
+                        karena kamu adalah kamu. ♡
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL
+        ================================================== -->
+
+        <section class="final-section">
+
+            <div class="final-glow"></div>
+
+            <div class="final-heart">
+                ♡
+            </div>
+
+            <div class="section-label">
+                ONE LAST THING
+            </div>
+
+            <h2>
+                You are<br>
+                <i>loved.</i>
+            </h2>
+
+            <p class="final-main">
+                Happy birthday.
+            </p>
+
+            <p>
+                I hope this year will be kind to you. ♡
+            </p>
+
+            <div class="final-line"></div>
+
+            <small>
+                Made with love, just for you.
+            </small>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

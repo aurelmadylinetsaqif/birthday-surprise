@@ -1,0 +1,3717 @@
+/* =====================================================
+   BIRTHDAY SURPRISE
+   STYLE.CSS — FULL PREMIUM VERSION
+===================================================== */
+
+
+/* =====================================================
+   01. RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+
+    color: #f8eef9;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #38203f 0%,
+            #1c0e22 38%,
+            #0b050e 100%
+        );
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+::selection {
+    background: rgba(225, 165, 240, 0.25);
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   02. ACCESSIBILITY
+===================================================== */
+
+.sr-only {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+/* =====================================================
+   03. GLOBAL BACKGROUND
+===================================================== */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 12% 18%,
+            rgba(213, 133, 232, 0.10),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 88% 52%,
+            rgba(188, 102, 214, 0.08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(157, 83, 181, 0.10),
+            transparent 38%
+        );
+}
+
+.ambient {
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.12;
+
+    z-index: -5;
+
+    pointer-events: none;
+}
+
+.ambient-1 {
+    top: -100px;
+    left: -160px;
+
+    background: #d887ea;
+}
+
+.ambient-2 {
+    top: 42%;
+    right: -160px;
+
+    background: #a95fc2;
+}
+
+.ambient-3 {
+    bottom: -180px;
+    left: 35%;
+
+    background: #df98e9;
+}
+
+
+/* =====================================================
+   03b. TWINKLING STARS
+===================================================== */
+
+#stars {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -8;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.9),
+            rgba(230, 190, 245, 0.4)
+        );
+
+    animation:
+        twinkle
+        ease-in-out
+        infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.15;
+
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scale(1.2);
+    }
+}
+
+
+/* =====================================================
+   03c. CONFETTI
+===================================================== */
+
+#confettiContainer {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9998;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+
+    top: -20px;
+
+    width: 8px;
+    height: 14px;
+
+    border-radius: 2px;
+
+    opacity: 0;
+
+    animation:
+        confettiFall
+        linear
+        forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate3d(0, 0, 0)
+            rotateX(0deg)
+            rotateZ(0deg);
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate3d(
+                var(--confetti-x),
+                110vh,
+                0
+            )
+            rotateX(720deg)
+            rotateZ(var(--confetti-rot));
+    }
+}
+
+
+/* =====================================================
+   04. FLOATING PETALS
+===================================================== */
+
+#petals {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+
+    top: -25px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(250, 211, 252, 0.8),
+            rgba(190, 107, 208, 0.42)
+        );
+
+    box-shadow:
+        0 3px 12px
+        rgba(187, 98, 205, 0.20);
+
+    opacity: 0.58;
+
+    animation:
+        petalFall
+        linear
+        infinite;
+}
+
+@keyframes petalFall {
+
+    0% {
+        transform:
+            translate3d(0, -30px, 0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.65;
+    }
+
+    50% {
+        transform:
+            translate3d(30px, 50vh, 0)
+            rotate(170deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-35px, 110vh, 0)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   05. EFFECT CONTAINER
+===================================================== */
+
+#effectContainer {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.flower-burst {
+    position: fixed;
+
+    width: 10px;
+    height: 10px;
+
+    color: #f0baff;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    animation:
+        flowerBurst
+        0.9s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes flowerBurst {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translate(0, 0)
+            scale(0.2)
+            rotate(0deg);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translate(var(--dx), var(--dy))
+            scale(1.1)
+            rotate(180deg);
+    }
+}
+
+
+/* =====================================================
+   06. GAME SCREEN
+===================================================== */
+
+.screen {
+    width: 100%;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.game-page {
+    isolation: isolate;
+
+    flex-direction: column;
+}
+
+.game-background-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(225, 148, 242, 0.17),
+            transparent 70%
+        );
+
+    filter: blur(15px);
+
+    pointer-events: none;
+}
+
+.game-ui {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+    max-width: 500px;
+
+    text-align: center;
+
+    animation:
+        cardAppear
+        .8s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.game-header {
+    margin-bottom: 20px;
+}
+
+.game-title {
+    color: #fff7ff;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(34px,8vw,46px);
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+.game-description {
+    margin-top: 12px;
+
+    color: #ab98ac;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+.game-canvas-wrap {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    max-height: 60vh;
+
+    margin: 0 auto;
+
+    border:
+        1px solid
+        rgba(241, 215, 245, 0.12);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background:
+        rgba(0,0,0,.25);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.35),
+
+        inset 0 1px 0
+        rgba(255,255,255,.05);
+
+    cursor: crosshair;
+
+    touch-action: manipulation;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+.game-score-wrap {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 18px;
+}
+
+.game-score {
+    color: #edbdf4;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 36px;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 25px
+        rgba(224,145,242,.3);
+}
+
+.game-score small {
+    color: #9a809c;
+
+    font-size: 16px;
+
+    font-weight: 400;
+}
+
+.game-hearts-display {
+    color: #e4a0d4;
+
+    font-size: 18px;
+
+    letter-spacing: 4px;
+
+    transition: all .3s ease;
+}
+
+.game-message {
+    margin-top: 14px;
+
+    color: #c5a0cb;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    font-style: italic;
+
+    min-height: 24px;
+
+    transition: all .3s ease;
+}
+
+.game-message.success {
+    color: #e8b4f0;
+
+    font-size: 20px;
+
+    animation:
+        successPulse
+        1s
+        ease-in-out
+        infinite;
+}
+
+@keyframes successPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .6;
+    }
+}
+
+.game-footer {
+    margin-top: 20px;
+
+    color:
+        rgba(213,181,217,.37);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 15px;
+
+    font-style: italic;
+}
+
+.tiny-title {
+    margin-bottom: 14px;
+
+    color: #c5a0cb;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   07. HERO / HAPPY BIRTHDAY
+===================================================== */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        50px
+        20px
+        70px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(229,159,244,.20),
+            rgba(89,49,96,.10) 34%,
+            transparent 69%
+        );
+
+    transition:
+        opacity .2s ease;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 680px;
+    height: 680px;
+
+    top: 38%;
+    left: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(240,196,247,.13),
+            transparent 68%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+    max-width: 800px;
+
+    text-align: center;
+}
+
+.hero-glow {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: .11;
+
+    pointer-events: none;
+}
+
+.hero-glow-left {
+    top: 0;
+    left: -220px;
+
+    background: #dc90e9;
+}
+
+.hero-glow-right {
+    right: -220px;
+    bottom: 0;
+
+    background: #aa61bf;
+}
+
+.hero-small-label {
+    margin-bottom: 14px;
+
+    color:
+        rgba(220,183,227,.60);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.hero-title {
+    color: #fffaff;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(48px,10vw,86px);
+
+    font-weight: 600;
+
+    line-height: .88;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 0 20px
+        rgba(225,168,240,.18),
+
+        0 0 55px
+        rgba(205,133,223,.09);
+}
+
+.hero-title span {
+    display: block;
+
+    margin-top: 16px;
+
+    color: #f0caf5;
+
+    font-size: .47em;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 22px
+        rgba(230,177,242,.22);
+}
+
+.hero-date {
+    margin-top: 20px;
+
+    color: #d5b7da;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 18px
+        rgba(216,162,230,.15);
+}
+
+.hero-date-line {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 14px;
+}
+
+.hero-date-line span {
+    width: 60px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(239,205,244,.42)
+        );
+}
+
+.hero-date-line span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(239,205,244,.42),
+            transparent
+        );
+}
+
+.hero-date-line i {
+    color: #e9b9ef;
+
+    font-size: 10px;
+
+    font-style: normal;
+}
+
+.hero-line {
+    width: 80px;
+    height: 1px;
+
+    margin:
+        29px
+        auto
+        20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(232,194,239,.34),
+            transparent
+        );
+}
+
+.hero-subtitle {
+    color: #9f8ba2;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    line-height: 1.5;
+}
+
+.hero-note {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-top: 35px;
+
+    color:
+        rgba(202,173,207,.40);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    animation:
+        noteFloat
+        2s
+        ease-in-out
+        infinite;
+}
+
+.hero-note b {
+    margin-top: 5px;
+
+    color: #d0abd7;
+
+    font-size: 16px;
+
+    font-weight: 300;
+}
+
+@keyframes noteFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+
+/* =====================================================
+   08. GIFT BOX
+===================================================== */
+
+.gift-container {
+    position: relative;
+
+    width: 280px;
+    min-height: 305px;
+
+    margin: 31px auto 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    touch-action: manipulation;
+
+    outline: none;
+
+    z-index: 5;
+}
+
+.gift-container:focus-visible {
+    outline:
+        2px solid
+        rgba(228,170,241,.55);
+
+    outline-offset: 8px;
+
+    border-radius: 20px;
+}
+
+.gift-message {
+    position: relative;
+
+    z-index: 20;
+
+    margin-bottom: 14px;
+
+    color: #e9cbed;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    animation:
+        giftMessage
+        3s
+        ease-in-out
+        infinite;
+}
+
+@keyframes giftMessage {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.gift {
+    position: relative;
+
+    width: 150px;
+    height: 150px;
+
+    margin: auto;
+
+    filter:
+        drop-shadow(
+            0 25px 35px
+            rgba(0,0,0,.35)
+        );
+
+    transition:
+        transform .45s ease;
+}
+
+.gift-container:not(.opened):hover .gift {
+    transform:
+        translateY(-8px)
+        scale(1.03);
+}
+
+.gift-container:not(.opened):active .gift {
+    transform:
+        translateY(-2px)
+        scale(.97);
+}
+
+.gift-glow {
+    position: absolute;
+
+    left: 50%;
+    bottom: 38px;
+
+    width: 80px;
+    height: 80px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(239,169,253,.72),
+            rgba(191,102,218,.16) 45%,
+            transparent 72%
+        );
+
+    filter: blur(12px);
+
+    opacity: 0;
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease;
+}
+
+.gift-container.opened
+.gift-glow {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        scale(1.5);
+
+    animation:
+        glowPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,100% {
+        opacity: .55;
+    }
+
+    50% {
+        opacity: .9;
+    }
+}
+
+.gift-box {
+    position: absolute;
+
+    left: 15px;
+    bottom: 0;
+
+    width: 120px;
+    height: 82px;
+
+    z-index: 4;
+
+    overflow: hidden;
+
+    border-radius:
+        5px 5px 15px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a95f88,
+            #71365f 55%,
+            #4e274e
+        );
+
+    box-shadow:
+        0 18px 35px
+        rgba(0,0,0,.4),
+
+        inset 0 1px 0
+        rgba(255,255,255,.12);
+}
+
+.gift-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,225,240,.42),
+            transparent
+        );
+}
+
+.gift-lid {
+    position: absolute;
+
+    left: 10px;
+    top: 43px;
+
+    width: 130px;
+    height: 29px;
+
+    z-index: 8;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #c1729a,
+            #8c426f 55%,
+            #683053
+        );
+
+    box-shadow:
+        0 10px 22px
+        rgba(0,0,0,.25);
+
+    transform-origin:
+        left center;
+
+    transition:
+        top .8s
+        cubic-bezier(.17,.67,.25,1.25),
+        transform .8s
+        cubic-bezier(.17,.67,.25,1.25);
+}
+
+.gift-ribbon {
+    position: absolute;
+
+    left: 51px;
+    top: 0;
+
+    width: 20px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,215,235,.45),
+            rgba(255,235,245,.9),
+            rgba(255,215,235,.45)
+        );
+}
+
+.gift-container.opened
+.gift-lid {
+    top: 8px;
+
+    transform:
+        translateY(-48px)
+        rotate(-9deg);
+}
+
+
+/* =====================================================
+   09. FLOWERS
+===================================================== */
+
+.flowers {
+    position: absolute;
+
+    left: 50%;
+    bottom: 52px;
+
+    width: 20px;
+    height: 20px;
+
+    z-index: 6;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+}
+
+.flowers span {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 35px;
+    height: 35px;
+
+    display: block;
+
+    font-size: 29px;
+
+    line-height: 35px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: auto;
+
+    cursor: pointer;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.15);
+
+    transition:
+        opacity .25s ease,
+        transform .8s
+        cubic-bezier(.17,.67,.3,1.4),
+        filter .3s ease;
+}
+
+.gift-container.opened
+.flowers span:nth-child(1) {
+    opacity: 1;
+
+    transform:
+        translate(-76px,-83px)
+        rotate(-20deg)
+        scale(1);
+}
+
+.gift-container.opened
+.flowers span:nth-child(2) {
+    opacity: 1;
+
+    transform:
+        translate(-38px,-111px)
+        rotate(10deg)
+        scale(1);
+}
+
+.gift-container.opened
+.flowers span:nth-child(3) {
+    opacity: 1;
+
+    transform:
+        translate(0,-132px)
+        rotate(-10deg)
+        scale(1);
+}
+
+.gift-container.opened
+.flowers span:nth-child(4) {
+    opacity: 1;
+
+    transform:
+        translate(43px,-110px)
+        rotate(15deg)
+        scale(1);
+}
+
+.gift-container.opened
+.flowers span:nth-child(5) {
+    opacity: 1;
+
+    transform:
+        translate(78px,-78px)
+        rotate(-15deg)
+        scale(1);
+}
+
+.gift-container.opened
+.flowers span:nth-child(6) {
+    opacity: 1;
+
+    transform:
+        translate(38px,-65px)
+        rotate(20deg)
+        scale(1);
+}
+
+.gift-container.opened
+.flowers span:nth-child(7) {
+    opacity: 1;
+
+    transform:
+        translate(-55px,-63px)
+        rotate(-15deg)
+        scale(1);
+}
+
+.gift-container.opened
+.flowers span:hover {
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(240,174,255,.95)
+        );
+
+    scale: 1.12;
+}
+
+.flowers span.bloom {
+    animation:
+        flowerBloom
+        1s
+        ease
+        forwards;
+}
+
+@keyframes flowerBloom {
+
+    0% {
+        scale: 1;
+    }
+
+    25% {
+        scale: 1.5;
+
+        filter:
+            drop-shadow(
+                0 0 20px
+                rgba(240,165,255,.95)
+            );
+    }
+
+    50% {
+        scale: 1.15;
+    }
+
+    75% {
+        scale: 1.35;
+    }
+
+    100% {
+        scale: 1.18;
+    }
+}
+
+.gift-hint {
+    position: relative;
+
+    z-index: 20;
+
+    margin-top: 18px;
+
+    color: #aa96ad;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    opacity: .72;
+
+    transition:
+        opacity .4s ease,
+        transform .4s ease;
+}
+
+.gift-container.opened
+.gift-hint {
+    opacity: 0;
+
+    transform:
+        translateY(-8px);
+}
+
+.gift-open-message {
+    position: absolute;
+
+    left: 50%;
+    bottom: -4px;
+
+    width: 260px;
+
+    transform:
+        translateX(-50%)
+        translateY(10px);
+
+    color: #e1b8e9;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    opacity: 0;
+
+    transition:
+        opacity .6s ease .35s,
+        transform .6s ease .35s;
+}
+
+.gift-container.opened
+.gift-open-message {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+.gift-container.opened::before,
+.gift-container.opened::after {
+    content: "✦";
+
+    position: absolute;
+
+    color:
+        rgba(240,190,255,.85);
+
+    font-size: 15px;
+
+    pointer-events: none;
+
+    animation:
+        giftSparkle
+        2s
+        ease-in-out
+        infinite;
+}
+
+.gift-container.opened::before {
+    left: 30px;
+    top: 100px;
+}
+
+.gift-container.opened::after {
+    right: 30px;
+    top: 75px;
+
+    animation-delay: .8s;
+}
+
+@keyframes giftSparkle {
+
+    0%,100% {
+        opacity: 0;
+
+        transform:
+            scale(.4)
+            rotate(0deg);
+    }
+
+    35% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(45deg);
+    }
+
+    65% {
+        opacity: .3;
+
+        transform:
+            scale(.7)
+            rotate(90deg);
+    }
+}
+
+
+/* =====================================================
+   10. GENERAL SECTIONS
+===================================================== */
+
+.section {
+    position: relative;
+
+    width:
+        min(
+            calc(100% - 40px),
+            1080px
+        );
+
+    margin: 0 auto;
+
+    padding:
+        125px 0;
+}
+
+.section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 1px;
+    height: 65px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(229,187,237,.2)
+        );
+}
+
+.section-number {
+    margin-bottom: 8px;
+
+    color:
+        rgba(220,171,230,.28);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.section-label {
+    color: #ad8fb2;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-top: 14px;
+
+    color: #f8edf9;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(43px,7vw,70px);
+
+    font-weight: 500;
+
+    line-height: .95;
+
+    letter-spacing: -.7px;
+}
+
+.section-title i {
+    color: #d0a0db;
+
+    font-weight: 400;
+}
+
+.section-description {
+    max-width: 560px;
+
+    margin-top: 19px;
+
+    color: #978498;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   11. LETTER
+===================================================== */
+
+.letter {
+    position: relative;
+
+    max-width: 850px;
+
+    margin-top: 45px;
+
+    padding:
+        60px
+        55px
+        50px;
+
+    border:
+        1px solid
+        rgba(236,200,241,.12);
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.02)
+        );
+
+    box-shadow:
+        0 25px 65px
+        rgba(0,0,0,.25);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.letter::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(243,205,249,.35),
+            transparent
+        );
+}
+
+.letter-top {
+    position: absolute;
+
+    top: 21px;
+    left: 28px;
+
+    color: #d9a7e2;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+}
+
+.letter-stamp {
+    position: absolute;
+
+    top: 23px;
+    right: 28px;
+
+    padding: 6px 10px;
+
+    border:
+        1px solid
+        rgba(225,178,235,.15);
+
+    border-radius: 20px;
+
+    color:
+        rgba(218,171,226,.48);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+.letter h3 {
+    margin-bottom: 24px;
+
+    color: #ead6ed;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 500;
+}
+
+.letter p {
+    margin-bottom: 18px;
+
+    color: #a996a9;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.75;
+}
+
+.signature {
+    margin-top: 28px;
+
+    color: #9a869d;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    font-style: italic;
+}
+
+.signature span {
+    color: #d2a4dc;
+
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   12. MEMORY RECEIPT CARDS
+===================================================== */
+
+.memory-receipt-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 24px;
+
+    margin-top: 50px;
+}
+
+.memory-ticket {
+    position: relative;
+
+    padding: 16px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdfd,
+            #f1ebf2
+        );
+
+    color: #36243a;
+
+    border:
+        1px solid
+        rgba(255,255,255,.7);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.28);
+
+    cursor: pointer;
+
+    transform:
+        rotate(-1deg);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.memory-ticket:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+.memory-ticket:nth-child(3) {
+    transform: rotate(.7deg);
+}
+
+.memory-ticket:nth-child(4) {
+    transform: rotate(-.7deg);
+}
+
+.memory-ticket:hover {
+    transform:
+        translateY(-8px)
+        rotate(0deg);
+
+    box-shadow:
+        0 30px 65px
+        rgba(0,0,0,.36);
+}
+
+.memory-ticket::before,
+.memory-ticket::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 17px;
+    height: 32px;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        #140a17;
+
+    z-index: 4;
+}
+
+.memory-ticket::before {
+    left: -10px;
+}
+
+.memory-ticket::after {
+    right: -10px;
+}
+
+.ticket-top {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 11px;
+
+    border-bottom:
+        1px dashed
+        rgba(56,38,61,.22);
+
+    color: #6e5a71;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1.2px;
+}
+
+.ticket-top b {
+    color: #93699a;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    font-weight: 500;
+}
+
+.ticket-photo {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    margin-top: 13px;
+
+    overflow: hidden;
+
+    background: #ddd3df;
+}
+
+.ticket-photo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.35);
+}
+
+.ticket-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .6s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.memory-ticket:hover
+.ticket-photo img {
+    transform: scale(1.05);
+}
+
+.ticket-info {
+    padding:
+        13px
+        2px
+        11px;
+}
+
+.ticket-info span {
+    display: block;
+
+    color: #8b778e;
+
+    font-family: monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 1.3px;
+}
+
+.ticket-info strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #3e2b42;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 21px;
+
+    font-weight: 600;
+}
+
+.ticket-info small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #9c8b9f;
+
+    font-family: monospace;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+}
+
+.ticket-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 10px;
+
+    border-top:
+        1px dashed
+        rgba(56,38,61,.22);
+
+    color: #867487;
+
+    font-family: monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+}
+
+.ticket-bottom b {
+    color: #9c76a2;
+}
+
+.special-ticket {
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.28),
+
+        0 0 35px
+        rgba(211,132,228,.12);
+}
+
+.ticket-special {
+    position: absolute;
+
+    top: 9px;
+    right: 10px;
+
+    z-index: 6;
+
+    padding: 5px 8px;
+
+    background:
+        #4a2c50;
+
+    color: #f7defa;
+
+    font-family: monospace;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+}
+
+.memory-hint {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 27px;
+
+    color: #89788c;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    font-style: italic;
+
+    text-align: center;
+}
+
+.memory-hint span {
+    color: #bb8ec4;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   13. PHOTO BOOK POPUP
+===================================================== */
+
+.book-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    background:
+        rgba(5,2,8,.92);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    cursor: pointer;
+
+    animation:
+        receiptOverlayIn
+        .25s
+        ease
+        both;
+}
+
+@keyframes receiptOverlayIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.photo-book {
+    position: relative;
+
+    width:
+        min(
+            100%,
+            640px
+        );
+
+    cursor: default;
+
+    perspective: 1800px;
+
+    animation:
+        bookAppear
+        .5s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+}
+
+@keyframes bookAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(26px)
+            scale(.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.book-close {
+    position: absolute;
+
+    top: -16px;
+    right: -10px;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background:
+        #2c1a31;
+
+    color: #f4d8f7;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.4);
+
+    font-size: 17px;
+
+    z-index: 20;
+}
+
+.book-ribbon {
+    position: absolute;
+
+    top: -13px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    padding: 6px 16px;
+
+    background:
+        #4a2c50;
+
+    color: #f7defa;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(0,0,0,.35);
+
+    z-index: 15;
+
+    white-space: nowrap;
+}
+
+.book-cover {
+    position: relative;
+
+    padding:
+        34px 22px
+        20px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #3a2140,
+            #221029
+        );
+
+    box-shadow:
+        0 40px 110px
+        rgba(0,0,0,.6),
+        inset 0 0 0 1px
+        rgba(255,255,255,.06);
+
+    border-radius: 3px;
+}
+
+.book-cover::before,
+.book-cover::after {
+    content: "";
+
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    border: 1px solid
+        rgba(226,178,236,.4);
+
+    opacity: .85;
+}
+
+.book-cover::before {
+    top: 12px;
+    left: 12px;
+
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.book-cover::after {
+    bottom: 12px;
+    right: 12px;
+
+    border-left: 0;
+    border-top: 0;
+}
+
+.book-spread {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    min-height: 360px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffefe,
+            #f5eef6
+        );
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.45);
+
+    transform-style: preserve-3d;
+
+    transform-origin: center center;
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
+
+    touch-action: pan-y;
+}
+
+.book-spread.turning {
+    transform:
+        rotateY(-10deg)
+        scale(.985);
+
+    opacity: .35;
+}
+
+.book-spread::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    width: 22px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.14),
+            rgba(0,0,0,0) 30%,
+            rgba(0,0,0,0) 70%,
+            rgba(0,0,0,.14)
+        );
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+.book-page {
+    position: relative;
+
+    padding: 20px;
+
+    color: #302331;
+}
+
+.book-page-left {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.page-photo-frame {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    background: #e3d9e5;
+
+    border:
+        1px solid
+        rgba(46,31,50,.12);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.18);
+}
+
+.page-photo-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.book-page-right {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.page-eyebrow {
+    color: #8b788d;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+}
+
+.page-title {
+    margin-top: 10px;
+
+    color: #261828;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+    font-weight: 600;
+    font-style: italic;
+
+    line-height: 1.15;
+}
+
+.page-divider {
+    width: 34px;
+    height: 1px;
+
+    margin: 14px 0;
+
+    background:
+        rgba(45,31,50,.3);
+}
+
+.page-note {
+    color: #6b5a6e;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.page-date {
+    margin-top: 18px;
+
+    color: #9a899c;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+.page-number {
+    position: absolute;
+
+    bottom: 14px;
+    right: 18px;
+
+    color: #b09fb2;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+.page-special .page-eyebrow {
+    color: #9a5aa3;
+}
+
+.book-controls {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-top: 18px;
+}
+
+.book-nav {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: #f4e6f6;
+
+    font-size: 16px;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.16);
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+}
+
+.book-nav:hover {
+    background:
+        rgba(255,255,255,.16);
+
+    transform:
+        scale(1.06);
+}
+
+.book-nav:disabled {
+    opacity: .3;
+
+    cursor: default;
+
+    transform: none;
+}
+
+.book-dots {
+    display: flex;
+
+    gap: 8px;
+}
+
+.book-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.25);
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+}
+
+.book-dot.active {
+    background: #e2b2ec;
+
+    transform: scale(1.3);
+}
+
+@media (max-width: 560px) {
+
+    .book-spread {
+        grid-template-columns: 1fr;
+
+        min-height: 0;
+    }
+
+    .book-spread::before {
+        display: none;
+    }
+
+    .book-page-left {
+        padding-bottom: 6px;
+    }
+
+    .page-photo-frame {
+        aspect-ratio: 4 / 3;
+    }
+
+    .book-page-right {
+        padding-top: 6px;
+    }
+
+    .page-title {
+        font-size: 25px;
+    }
+}
+
+
+/* =====================================================
+   14. MUSIC
+===================================================== */
+
+.music-player {
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    align-items: center;
+
+    gap: 17px;
+
+    margin-top: 45px;
+
+    padding: 22px;
+
+    border:
+        1px solid
+        rgba(234,198,240,.10);
+
+    border-radius: 24px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    box-shadow:
+        0 20px 55px
+        rgba(0,0,0,.22);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.album {
+    position: relative;
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #efcbf4,
+            #a462ad 48%,
+            #4b264e
+        );
+
+    box-shadow:
+        0 10px 24px
+        rgba(0,0,0,.28);
+}
+
+.album-ring {
+    position: absolute;
+
+    inset: 9px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.28);
+
+    border-radius: 50%;
+}
+
+.music-note {
+    position: relative;
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    font-size: 27px;
+}
+
+.music-info span {
+    color: #927e94;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+.music-info h3 {
+    margin-top: 3px;
+
+    color: #eadbed;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: 600;
+}
+
+.music-info p {
+    margin-top: 2px;
+
+    color: #817083;
+
+    font-size: 9px;
+}
+
+.play-button {
+    width: 48px;
+    height: 48px;
+
+    border:
+        1px solid
+        rgba(229,180,238,.2);
+
+    border-radius: 50%;
+
+    background:
+        rgba(227,177,238,.1);
+
+    color: #eddaf1;
+
+    transition: .25s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.05);
+
+    background:
+        rgba(227,177,238,.18);
+}
+
+.music-progress {
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+    color: #7d6a7e;
+
+    font-size: 8px;
+}
+
+#progressBar {
+    width: 100%;
+
+    accent-color: #d49be1;
+}
+
+.music-controls {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 17px;
+}
+
+.music-controls button {
+    width: 42px;
+    height: 42px;
+
+    border:
+        1px solid
+        rgba(226,180,235,.12);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.03);
+
+    color: #d3bdd6;
+
+    transition: .2s ease;
+}
+
+.music-controls button:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(222,170,234,.09);
+}
+
+.music-controls
+#mainPlayButton {
+    width: 52px;
+    height: 52px;
+
+    border: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e7bff0,
+            #bc7cc8
+        );
+
+    color: #2a172e;
+}
+
+.song-list {
+    display: grid;
+
+    gap: 11px;
+
+    margin-top: 30px;
+}
+
+.song-card {
+    display: grid;
+
+    grid-template-columns:
+        32px 40px 1fr auto;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px;
+
+    border:
+        1px solid
+        rgba(229,193,235,.07);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition: .25s ease;
+
+    cursor: pointer;
+}
+
+.song-card:hover {
+    transform: translateX(3px);
+
+    background:
+        rgba(255,255,255,.045);
+
+    border-color:
+        rgba(226,175,237,.15);
+}
+
+.song-card.active {
+    border-color:
+        rgba(224,168,237,.23);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(202,129,219,.08),
+            rgba(255,255,255,.025)
+        );
+}
+
+.song-number {
+    color: #756477;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+.song-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(220,165,230,.08);
+
+    color: #dbb5e1;
+}
+
+.song-info span {
+    color: #8c788e;
+
+    font-size: 7px;
+
+    letter-spacing: 1.4px;
+}
+
+.song-info h3 {
+    color: #e7d6e9;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    font-weight: 600;
+}
+
+.song-info p {
+    color: #7f6e81;
+
+    font-size: 8px;
+}
+
+.song-play {
+    color: #baa3bd;
+
+    font-size: 12px;
+}
+
+.music-hint {
+    grid-column: 1 / -1;
+
+    margin-top: 8px;
+
+    color: #a587ab;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 14px;
+
+    font-style: italic;
+
+    text-align: center;
+
+    animation:
+        musicHintFade
+        1.2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes musicHintFade {
+
+    0%,
+    100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   15. REASONS
+===================================================== */
+
+.reason-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
+
+    gap: 18px;
+
+    margin-top: 48px;
+}
+
+.reason {
+    padding: 14px;
+
+    border:
+        1px solid
+        rgba(231,196,237,.08);
+
+    border-radius: 21px;
+
+    background:
+        rgba(255,255,255,.03);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.17);
+
+    transition: .35s ease;
+}
+
+.reason:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(229,177,239,.18);
+
+    box-shadow:
+        0 28px 60px
+        rgba(0,0,0,.25);
+}
+
+.reason-image {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    margin-bottom: 16px;
+}
+
+.reason-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .6s ease;
+}
+
+.reason:hover
+.reason-image img {
+    transform: scale(1.06);
+}
+
+.reason > span {
+    color: #a687ad;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.reason h3 {
+    margin-top: 6px;
+
+    color: #e8d9ea;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+}
+
+.reason p {
+    margin-top: 8px;
+
+    color: #908094;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   16. FINAL
+===================================================== */
+
+.final-section {
+    position: relative;
+
+    min-height: 85vh;
+    min-height: 85svh;
+
+    padding:
+        120px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.final-glow {
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(208,132,227,.16),
+            transparent 70%
+        );
+
+    filter: blur(15px);
+
+    pointer-events: none;
+}
+
+.final-heart {
+    position: relative;
+
+    z-index: 2;
+
+    color: #e2aeea;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 70px;
+
+    line-height: 1;
+
+    animation:
+        finalHeart
+        3s
+        ease-in-out
+        infinite;
+}
+
+@keyframes finalHeart {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.final-section h2 {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 13px;
+
+    color: #f5e9f7;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(64px,12vw,115px);
+
+    font-weight: 500;
+
+    line-height: .75;
+
+    letter-spacing: -3px;
+}
+
+.final-section h2 i {
+    color: #cb99d5;
+
+    font-weight: 400;
+}
+
+.final-section p {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 27px;
+
+    color: #a08ba1;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    font-style: italic;
+}
+
+.final-section p + p {
+    margin-top: 4px;
+
+    color: #817082;
+
+    font-size: 15px;
+}
+
+.final-main {
+    color: #d6b3de !important;
+}
+
+.final-line {
+    position: relative;
+
+    z-index: 2;
+
+    width: 70px;
+    height: 1px;
+
+    margin:
+        30px auto
+        20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(226,181,235,.38),
+            transparent
+        );
+}
+
+.final-section small {
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        rgba(194,157,200,.38);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   17. SCROLL REVEAL
+===================================================== */
+
+.letter,
+.memory-ticket,
+.reason,
+.music-player,
+.song-card,
+.final-section {
+    opacity: 0;
+
+    transform:
+        translateY(30px)
+        scale(0.97);
+
+    transition:
+        opacity .8s ease,
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.letter.show,
+.memory-ticket.show,
+.reason.show,
+.music-player.show,
+.song-card.show,
+.final-section.show {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.reason:nth-child(1).show { transition-delay: 0s; }
+.reason:nth-child(2).show { transition-delay: .1s; }
+.reason:nth-child(3).show { transition-delay: .2s; }
+.reason:nth-child(4).show { transition-delay: .3s; }
+.reason:nth-child(5).show { transition-delay: .4s; }
+.reason:nth-child(6).show { transition-delay: .5s; }
+
+.memory-ticket:nth-child(1).show { transition-delay: 0s; }
+.memory-ticket:nth-child(2).show { transition-delay: .12s; }
+.memory-ticket:nth-child(3).show { transition-delay: .24s; }
+.memory-ticket:nth-child(4).show { transition-delay: .36s; }
+
+.song-card:nth-child(1).show { transition-delay: 0s; }
+.song-card:nth-child(2).show { transition-delay: .1s; }
+.song-card:nth-child(3).show { transition-delay: .2s; }
+
+
+/* =====================================================
+   18. TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .reason-grid {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+
+}
+
+
+/* =====================================================
+   19. MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding:
+            15px 12px;
+    }
+
+    .game-title {
+        font-size:
+            clamp(30px, 8vw, 40px);
+    }
+
+    .game-canvas-wrap {
+        aspect-ratio: 3 / 4;
+
+        border-radius: 18px;
+    }
+
+    .game-score {
+        font-size: 30px;
+    }
+
+    .game-hearts-display {
+        font-size: 15px;
+    }
+
+    .game-message {
+        font-size: 14px;
+    }
+
+    .hero {
+        padding:
+            48px 10px
+            60px;
+    }
+
+    .hero-title {
+        font-size:
+            clamp(
+                45px,
+                13vw,
+                67px
+            );
+    }
+
+    .hero-title span {
+        font-size: .43em;
+    }
+
+    .hero-date {
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+    .hero-date-line span {
+        width: 45px;
+    }
+
+    .section {
+        width:
+            calc(100% - 28px);
+
+        padding:
+            95px 0;
+    }
+
+    .section-title {
+        font-size:
+            clamp(
+                40px,
+                12vw,
+                58px
+            );
+    }
+
+    .section-description {
+        font-size: 11px;
+    }
+
+
+    /* Gift */
+
+    .gift-container {
+        width: 260px;
+
+        min-height: 290px;
+    }
+
+    .gift-message {
+        font-size: 18px;
+    }
+
+    .gift {
+        width: 140px;
+        height: 140px;
+    }
+
+    .gift-box {
+        left: 10px;
+
+        width: 120px;
+        height: 78px;
+    }
+
+    .gift-lid {
+        left: 5px;
+
+        width: 130px;
+    }
+
+    .flowers span {
+        font-size: 27px;
+    }
+
+    .gift-container.opened
+    .flowers span:nth-child(1) {
+        transform:
+            translate(-66px,-78px)
+            rotate(-20deg)
+            scale(1);
+    }
+
+    .gift-container.opened
+    .flowers span:nth-child(2) {
+        transform:
+            translate(-32px,-101px)
+            rotate(10deg)
+            scale(1);
+    }
+
+    .gift-container.opened
+    .flowers span:nth-child(3) {
+        transform:
+            translate(0,-120px)
+            rotate(-10deg)
+            scale(1);
+    }
+
+    .gift-container.opened
+    .flowers span:nth-child(4) {
+        transform:
+            translate(36px,-101px)
+            rotate(15deg)
+            scale(1);
+    }
+
+    .gift-container.opened
+    .flowers span:nth-child(5) {
+        transform:
+            translate(66px,-73px)
+            rotate(-15deg)
+            scale(1);
+    }
+
+    .gift-container.opened
+    .flowers span:nth-child(6) {
+        transform:
+            translate(32px,-61px)
+            rotate(20deg)
+            scale(1);
+    }
+
+    .gift-container.opened
+    .flowers span:nth-child(7) {
+        transform:
+            translate(-50px,-59px)
+            rotate(-15deg)
+            scale(1);
+    }
+
+
+    /* Letter */
+
+    .letter {
+        padding:
+            55px
+            23px
+            30px;
+    }
+
+    .letter p {
+        font-size: 18px;
+    }
+
+
+    /* Memory */
+
+    .memory-receipt-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        margin-top: 40px;
+    }
+
+    .memory-ticket {
+        width: 100%;
+
+        max-width: 430px;
+
+        margin: auto;
+    }
+
+
+    /* Photo book */
+
+    .book-overlay {
+        align-items: flex-start;
+
+        padding:
+            30px 13px;
+    }
+
+    .photo-book {
+        width: 100%;
+    }
+
+    .book-cover {
+        padding:
+            30px 14px
+            16px;
+    }
+
+
+    /* Music */
+
+    .music-player {
+        grid-template-columns:
+            auto 1fr;
+
+        padding: 17px;
+    }
+
+    .music-player
+    .play-button {
+        grid-column: 2;
+        grid-row: 1;
+
+        justify-self: end;
+    }
+
+    .album {
+        width: 64px;
+        height: 64px;
+    }
+
+    .music-info h3 {
+        font-size: 22px;
+    }
+
+    .song-card {
+        grid-template-columns:
+            28px 40px 1fr auto;
+
+        gap: 9px;
+
+        padding: 13px;
+    }
+
+
+    /* Reasons */
+
+    .reason-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    /* Final */
+
+    .final-section {
+        min-height: 80svh;
+
+        padding:
+            100px 18px;
+    }
+
+    .final-heart {
+        font-size: 60px;
+    }
+
+    .final-section h2 {
+        font-size:
+            clamp(
+                66px,
+                20vw,
+                95px
+            );
+
+        letter-spacing: -2px;
+    }
+
+}
+
+
+/* =====================================================
+   20. EXTRA SMALL PHONE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .game-title {
+        font-size: 28px;
+    }
+
+    .game-canvas-wrap {
+        aspect-ratio: 3 / 4;
+    }
+
+    .game-score {
+        font-size: 26px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-date {
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+    .gift-container {
+        width: 230px;
+    }
+
+    .gift {
+        transform: scale(.9);
+    }
+
+    .gift-container:not(.opened):hover .gift {
+        transform:
+            translateY(-6px)
+            scale(.93);
+    }
+
+    .gift-container:not(.opened):active .gift {
+        transform:
+            translateY(-2px)
+            scale(.88);
+    }
+
+    .gift-open-message {
+        width: 220px;
+
+        font-size: 16px;
+    }
+
+    .letter {
+        padding:
+            50px
+            19px
+            28px;
+    }
+
+    .letter p {
+        font-size: 17px;
+    }
+
+    .book-cover {
+        padding:
+            26px 12px
+            14px;
+    }
+
+    .page-title {
+        font-size: 22px;
+    }
+
+    .song-info h3 {
+        font-size: 17px;
+    }
+
+}
+
+
+/* =====================================================
+   21. REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+}
